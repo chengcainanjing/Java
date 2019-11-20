@@ -78,8 +78,7 @@ public class A20191120ManagerTest {
         staff[2] = new Employee("zz", 9000, 2013, 4, 8);
 
         // print out information about all Employee objects
-        for (Employee e: staff
-             ) {
+        for (Employee e: staff) {
             System.out.println("name= " + e.getName() + ", salary= " + e.getSalary());
         }
     }
