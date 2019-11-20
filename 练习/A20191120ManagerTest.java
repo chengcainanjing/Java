@@ -63,7 +63,7 @@ class Manager extends Employee {
     private double bonus;
 }
 
-public class ManagerTest20191120 {
+public class A20191120ManagerTest {
     public static void main(String[] args) {
         // construct a Manager object
         Manager boss = new Manager("chengcai", 10000, 2017, 7, 18);
