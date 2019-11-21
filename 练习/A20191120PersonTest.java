@@ -7,6 +7,7 @@ import java.util.*;
  * @version 1.0 2019.11.20
  */
 
+// 抽象父类
 abstract class Person {
     public Person(String n) {
         name = n;
@@ -21,7 +22,7 @@ abstract class Person {
     private String name;
 }
 
-
+// 抽象类的具体子类
 class Employee extends Person {
     public Employee(String n, double s, int year,int month, int day) {
         super(n);
@@ -43,6 +44,7 @@ class Employee extends Person {
         salary += raise;
     }
 
+    // 重载
     @java.lang.Override
     public String getDescription() {
         return String.format("an employee with a salary of $%.2f", salary);
@@ -52,12 +54,14 @@ class Employee extends Person {
     private Date hireDay;
 }
 
+// 抽象类的具体子类
 class Teacher extends Person {
     public Teacher(String n, String m) {
         super(n);
         major = m;
     }
 
+    // 重载
     @java.lang.Override
     public String getDescription() {
         return "a teacher teaches " + major;
@@ -65,6 +69,7 @@ class Teacher extends Person {
 
     private String major;
 }
+
 
 public class A20191120PersonTest {
     public static void main(String[] args) {
