@@ -57,6 +57,7 @@ class Employee {
         salary += raise;
     }
 
+    // Employee类中有一个静态的main方法用于单元测试
     public static void main(String[] args) {
         Employee e = new Employee("cc1", 3000, 2020, 01, 15);
         System.out.println(e.getName() + " " + e.getSalary());
