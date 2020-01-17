@@ -66,9 +66,9 @@ class Employee {
     private String name;
     private double salary;
 
-    public Employee(String n, double s) {
-        name = n;
-        salary = s;
+    public Employee(String aName, double aSalary) {
+        this.name = aName;
+        this.salary = aSalary;
     }
 
     public String getName() {
