@@ -1,5 +1,6 @@
 import com.horstmann.corejava.*;
 // the Employee class is defined in that package
+// 需要引用其他路径下的文件，需要import，将路径写清楚
 
 import static java.lang.System.*;
 

@@ -1,6 +1,7 @@
 package com.horstmann.corejava;
 // the classes in this file are part of this package
 // 将一个类放入包中，就必须将包的名字放在源文件中的开头
+// 该文件中的类被其他文件（A20200120PackageTest）引用
 
 import java.time.*;
 // import statements come after the package statement
