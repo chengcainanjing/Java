@@ -8,7 +8,7 @@ class Demo extends Thread {
 
 
 class ThreadDemo1{
-	class public void main(String[] args){
+	 public static void main(String[] args){
 		Demo d = new Demo();
 		d.start();
 
