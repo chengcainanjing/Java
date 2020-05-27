@@ -9,7 +9,7 @@ class Demo extends Thread {
 
 class ThreadDemo1{
 	 public static void main(String[] args){
-		Demo d = new Demo();
+		Demo d = new Demo();	//创建一个线程
 		d.start();
 
 		for (int i = 0; i < 60; i++) {
