@@ -15,7 +15,7 @@ class Input implements Runnable {
 		Object obj = new Object();
 		while (true) {
 			synchronized (r) {
-				if (r.flag) wait();
+				if (r.flag) try{r.wait();}catch (Exception e){}
 				if (x == 0) {
 					r.name = "cc";
 					r.sex = "man";
@@ -25,7 +25,7 @@ class Input implements Runnable {
 				}
 				x = (x + 1) % 2;
 				r.flag = true;
-				notify();
+				r.notify();
 			}
 		}
 	}
@@ -42,15 +42,14 @@ class Output implements Runnable {
 		Object obj = new Object();
 		while (true) {
 			synchronized (r) {
-				if (!r.flag) wait();
+				if (!r.flag) try { r.wait(); } catch (Exception e) {}
 				System.out.println(r.name + "..." + r.sex);
 				r.flag = false;
-				notify();
+				r.notify();
 			}
 		}
 	}
 }
-
 
 class InputOutputDemo{
 	public static void main(String[] args) {
@@ -60,7 +59,7 @@ class InputOutputDemo{
 		Output out = new Output(r);
 
 		Thread t1 = new Thread(in);
-		Thread t2 = new Thread(out);
+		Thread t2  = new Thread(out);
 
 		t1.start();
 		t2.start();
