@@ -1,5 +1,19 @@
-//获取两个字符串中最大相同子串
+
 class StringBufferDemo {
+    public static void method_getChars() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("chengcai");
+        sop(sb.toString());
+
+        char[] chs = new char[5];
+
+        sb.getChars(1,4,chs,2);
+        for (int i= 0; i < chs.length; i++) {
+            sop("chs["+i+"]="+chs[i]+";");
+        }
+    }
+
+
     public static void method_delete() {
         StringBuffer sb = new StringBuffer();
         sb.append("chengcai");
@@ -16,6 +30,7 @@ class StringBufferDemo {
 
 
     }
+
 
     public static void method_update() {
         StringBuffer sb = new StringBuffer();
@@ -56,7 +71,9 @@ class StringBufferDemo {
 
         //method_delete();
 
-        method_update();
+        //method_update();
+
+        method_getChars();
     }
 }
 
