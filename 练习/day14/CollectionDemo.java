@@ -20,13 +20,18 @@ class CollectionDemo {
         al.add("java03");
         al.add("java04");
 
+        /*
         //获取迭代器，用于取出集合中的元素
         Iterator it = al.iterator();
 
         while (it.hasNext()) {
             sop(it.next());
         }
+         */
 
+        for (Iterator it = al.iterator(); it.hasNext(); ) {
+            sop(it.next());
+        }
 
         //打印集合
         //sop("原集合："+al);
