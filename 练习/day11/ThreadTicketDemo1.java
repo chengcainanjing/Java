@@ -12,8 +12,8 @@ class Ticket implements Runnable/*extends Thread*/ {
 	}
 }
 
-class ThreadTicketDemo1{
-	public static void main(String[] args){
+class ThreadTicketDemo1 {
+	public static void main(String[] args) {
 		//创建线程
 //     Ticket t1 = new Ticket();
 //     Ticket t2 = new Ticket();
@@ -41,4 +41,6 @@ class ThreadTicketDemo1{
 //    for (int i = 0; i < 60; i++) {
 //       System.out.println("Hello Workd!---" + i);
 //    }
+		System.out.println("it is over!");
 	}
+}

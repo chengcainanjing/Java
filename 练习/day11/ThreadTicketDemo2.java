@@ -1,21 +1,21 @@
-//¶¨ÒåÀàÊµÏÖ½Ó¿ÚRunnable
+//å®šä¹‰ç±»å®ç°æ¥å£Runnable
 class Ticket implements Runnable/*extends Thread*/ {
 	private static int tick = 100;
 
 	Object obj = new Object();
-	//¸²¸ÇRunnable½Ó¿ÚÖĞµÄrun·½·¨
+	//è¦†ç›–Runnableæ¥å£ä¸­çš„runæ–¹æ³•
 	public void run(){
 		while (true) {
-			//Í¬²½´úÂë¿é
+			//åŒæ­¥ä»£ç å—
 			synchronized (obj) {
 				if (tick > 0) {
-					//ÕâÊÇ½Ó¿ÚÊµÏÖ£¬²»ÄÜ³öÏÖÅ×Òì³££¬Ö»ÄÜcatch´¦Àí
+					//è¿™æ˜¯æ¥å£å®ç°ï¼Œä¸èƒ½å‡ºç°æŠ›å¼‚å¸¸ï¼Œåªèƒ½catchå¤„ç†
 					try {
-						//¶àÏß³Ì³öÏÖ°²È«ÎÊÌâ£¬Í¨¹ı·ÖÎö¡¢·¢ÏÖ¡¢´òÓ¡0¡¢-1¡¢-2µÈ´íÆ±
-						//Ô­Òò£º
-						//µ±¶àÌõÓï¾äÔÚ²Ù×÷Í¬Ò»¸öÏß³Ì¹²ÏíÊı¾İÊ±£¬Ò»¸öÏß³Ì¶Ô¶àÌõÓï¾äÖ»Ö´ĞĞÁËÒ»²¿·Ö£¬
-						// »¹Ã»ÓĞÖ´ĞĞÍê£¬ÁíÒ»¸öÏß³Ì²ÎÓë½øÀ´Ö´ĞĞ£¬µ¼ÖÂ¹²ÏíÊı¾İµÄ´íÎó¡£
-						Thread.sleep(10);
+						//å¤šçº¿ç¨‹å‡ºç°å®‰å…¨é—®é¢˜ï¼Œé€šè¿‡åˆ†æã€å‘ç°ã€æ‰“å°0ã€-1ã€-2ç­‰é”™ç¥¨
+						//åŸå› ï¼š
+						//å½“å¤šæ¡è¯­å¥åœ¨æ“ä½œåŒä¸€ä¸ªçº¿ç¨‹å…±äº«æ•°æ®æ—¶ï¼Œä¸€ä¸ªçº¿ç¨‹å¯¹å¤šæ¡è¯­å¥åªæ‰§è¡Œäº†ä¸€éƒ¨åˆ†ï¼Œ
+						// è¿˜æ²¡æœ‰æ‰§è¡Œå®Œï¼Œå¦ä¸€ä¸ªçº¿ç¨‹å‚ä¸è¿›æ¥æ‰§è¡Œï¼Œå¯¼è‡´å…±äº«æ•°æ®çš„é”™è¯¯ã€‚
+						Thread.sleep(1);
 					} catch (Exception e) {
 					}
 
@@ -28,7 +28,7 @@ class Ticket implements Runnable/*extends Thread*/ {
 
 class ThreadTicketDemo2 {
 	public static void main(String[] args) {
-		//´´½¨Ïß³Ì
+		//åˆ›å»ºçº¿ç¨‹
 //     Ticket t1 = new Ticket();
 //     Ticket t2 = new Ticket();
 //     Ticket t3 = new Ticket();
@@ -38,16 +38,16 @@ class ThreadTicketDemo2 {
 //    t3.start();
 //    t4.start();
 
-		//Í¨¹ıThreadÀà¼òÀúÏß³Ì¶ÔÏó
+		//é€šè¿‡Threadç±»ç®€å†çº¿ç¨‹å¯¹è±¡
 		Ticket t = new Ticket();
 
-		//½«Runnable½Ó¿ÚµÄ×ÓÀà¶ÔÏó×÷ÎªÊµ¼Ê²ÎÊı´«µİ¸øThreadÀàµÄ¹¹Ôìº¯Êı
+		//å°†Runnableæ¥å£çš„å­ç±»å¯¹è±¡ä½œä¸ºå®é™…å‚æ•°ä¼ é€’ç»™Threadç±»çš„æ„é€ å‡½æ•°
 		Thread t1 = new Thread(t);
 		Thread t2 = new Thread(t);
 		Thread t3 = new Thread(t);
 		Thread t4 = new Thread(t);
 
-		//µ÷ÓÃThreadÀàµÄstart·½·¨¿ªÆôÏß³Ì²¢µ÷ÓÃRunnable½Ó¿Ú×ÓÀàµÄrun·½·¨
+		//è°ƒç”¨Threadç±»çš„startæ–¹æ³•å¼€å¯çº¿ç¨‹å¹¶è°ƒç”¨Runnableæ¥å£å­ç±»çš„runæ–¹æ³•
 		t1.start();
 		t2.start();
 		t3.start();

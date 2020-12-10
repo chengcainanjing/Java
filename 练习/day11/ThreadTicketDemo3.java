@@ -1,22 +1,22 @@
-//¶¨ÒåÀàÊµÏÖ½Ó¿ÚRunnable
+//å®šä¹‰ç±»å®ç°æ¥å£Runnable
 class Ticket implements Runnable/*extends Thread*/ {
 	private static int tick = 100;
 	boolean flag = true;
 
 	Object obj = new Object();
-	//¸²¸ÇRunnable½Ó¿ÚÖĞµÄrun·½·¨
+	//è¦†ç›–Runnableæ¥å£ä¸­çš„runæ–¹æ³•
 	public void run(){
 		if (flag) {
 			while (true) {
-				//Í¬²½´úÂë¿é
+				//åŒæ­¥ä»£ç å—
 				synchronized (Ticket.class) {
 					if (tick > 0) {
-						//ÕâÊÇ½Ó¿ÚÊµÏÖ£¬²»ÄÜ³öÏÖÅ×Òì³££¬Ö»ÄÜcatch´¦Àí
+						//è¿™æ˜¯æ¥å£å®ç°ï¼Œä¸èƒ½å‡ºç°æŠ›å¼‚å¸¸ï¼Œåªèƒ½catchå¤„ç†
 						try {
-							//¶àÏß³Ì³öÏÖ°²È«ÎÊÌâ£¬Í¨¹ı·ÖÎö¡¢·¢ÏÖ¡¢´òÓ¡0¡¢-1¡¢-2µÈ´íÆ±
-							//Ô­Òò£º
-							//µ±¶àÌõÓï¾äÔÚ²Ù×÷Í¬Ò»¸öÏß³Ì¹²ÏíÊı¾İÊ±£¬Ò»¸öÏß³Ì¶Ô¶àÌõÓï¾äÖ»Ö´ĞĞÁËÒ»²¿·Ö£¬
-							// »¹Ã»ÓĞÖ´ĞĞÍê£¬ÁíÒ»¸öÏß³Ì²ÎÓë½øÀ´Ö´ĞĞ£¬µ¼ÖÂ¹²ÏíÊı¾İµÄ´íÎó¡£
+							//å¤šçº¿ç¨‹å‡ºç°å®‰å…¨é—®é¢˜ï¼Œé€šè¿‡åˆ†æã€å‘ç°ã€æ‰“å°0ã€-1ã€-2ç­‰é”™ç¥¨
+							//åŸå› ï¼š
+							//å½“å¤šæ¡è¯­å¥åœ¨æ“ä½œåŒä¸€ä¸ªçº¿ç¨‹å…±äº«æ•°æ®æ—¶ï¼Œä¸€ä¸ªçº¿ç¨‹å¯¹å¤šæ¡è¯­å¥åªæ‰§è¡Œäº†ä¸€éƒ¨åˆ†ï¼Œ
+							// è¿˜æ²¡æœ‰æ‰§è¡Œå®Œï¼Œå¦ä¸€ä¸ªçº¿ç¨‹å‚ä¸è¿›æ¥æ‰§è¡Œï¼Œå¯¼è‡´å…±äº«æ•°æ®çš„é”™è¯¯ã€‚
 							Thread.sleep(10);
 						} catch (Exception e) {
 						}
@@ -42,17 +42,17 @@ class Ticket implements Runnable/*extends Thread*/ {
 class ThreadTicketDemo3 {
 	public static void main(String[] args) {
 
-		//Í¨¹ıThreadÀà¼òÀúÏß³Ì¶ÔÏó
+		//é€šè¿‡Threadç±»ç®€å†çº¿ç¨‹å¯¹è±¡
 		Ticket t = new Ticket();
 
-		//½«Runnable½Ó¿ÚµÄ×ÓÀà¶ÔÏó×÷ÎªÊµ¼Ê²ÎÊı´«µİ¸øThreadÀàµÄ¹¹Ôìº¯Êı
+		//å°†Runnableæ¥å£çš„å­ç±»å¯¹è±¡ä½œä¸ºå®é™…å‚æ•°ä¼ é€’ç»™Threadç±»çš„æ„é€ å‡½æ•°
 		Thread t1 = new Thread(t);
 		Thread t2 = new Thread(t);
 
-		//µ÷ÓÃThreadÀàµÄstart·½·¨¿ªÆôÏß³Ì²¢µ÷ÓÃRunnable½Ó¿Ú×ÓÀàµÄrun·½·¨
+		//è°ƒç”¨Threadç±»çš„startæ–¹æ³•å¼€å¯çº¿ç¨‹å¹¶è°ƒç”¨Runnableæ¥å£å­ç±»çš„runæ–¹æ³•
 		t1.start();
 		try {
-			Thread.sleep(20);
+			Thread.sleep(10);
 		} catch (Exception e) { }
 		t.flag = false;
 		t2.start();
