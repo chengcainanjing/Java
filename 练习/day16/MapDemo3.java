@@ -12,22 +12,38 @@ class MapDemo3 {
         map.put("03", "chengcai3");
         map.put("04", null);
 
-        //先获取map集合的所有键的set集合，keyset（）
-        Set<String> keyset = map.keySet();
+        //先获取map集合的entryset集合，entryset（）
+        Set<Map.Entry<String,String>> entryset = map.entrySet();
 
         //有了set集合，就可以获取其迭代器
-        Iterator<String> it = keyset.iterator();
+        Iterator<Map.Entry<String,String>> it = entryset.iterator();
 
         while (it.hasNext()) {
-            String key = it.next();
+            Map.Entry<String,String> me = it.next();
 
-            //有了键可以通过map集合的get方法获取其对应的值
-            String value = map.get(key);
+            //
+            String key = me.getKey();
+            String value = me.getValue();
             System.out.println("key:" + key + ", value:" + value);
         }
-
-
-
-
     }
 }
+
+/*
+    Map.Entry 其实Entry也是一个接口，它是Map接口中的一个内部接口
+ */
+/*
+interface Map {
+    public static interface Entry {
+        public static Object getKey();
+        public static Object getValue();
+    }
+}
+
+class HashMap implements Map {
+    class Hahs implements Map.Entry {
+        public Object getKey() {}
+        public Object getValue() {}
+    }
+}
+ */
