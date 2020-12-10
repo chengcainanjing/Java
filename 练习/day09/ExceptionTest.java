@@ -1,4 +1,4 @@
-//异常类
+//????
 class MaoYanException extends Exception {
 	MaoYanException(String msg){
 		super(msg);
@@ -18,20 +18,20 @@ class NoPlanException extends Exception{
 }
 
 class Computer{
-	private int state = 3;
+	private int state = 2;
 		
 	public void run()throws LanPingException,MaoYanException{
 		if (state==2){
-			throw new LanPingException("电脑蓝屏啦！");
+			throw new LanPingException("????????????");
 		}
 		if (state==3){
-			throw new MaoYanException("电脑无法正常运行，冒烟了！");
+			throw new MaoYanException("??????????????校???????");
 		}
-		System.out.println("电脑运行");
+		System.out.println("????????");
 	}
 	
 	public void reset(){
-		System.out.println("电脑重启");
+		System.out.println("????????");
 		state = 1;
 	}
 }
@@ -49,18 +49,18 @@ class Teacher{
 		cmpt = new Computer();
 		try{
 			cmpt.run();
-			System.out.println("上课啦");
+			System.out.println("?????");
 		}
-		//该异常，老师可以解决，因此不需要抛出异常，自己解决，重启电脑即可
+		//??????????????????????????????????????????????????
 		catch (LanPingException e){
 			System.out.println(e.toString());
 			cmpt.reset();
-			
+
 		}
 		catch (MaoYanException e){
 			test();
-			//老师无法有电脑，因此需要将此异常抛出
-			throw new NoPlanException("课时无法正常进行！ "+e.getMessage());
+			//???????械???????????????????
+			throw new NoPlanException("?????????????校? "+e.getMessage());
 			//throw new NoPlanException(e.getMessage());
 		}
 		catch (Exception e){
@@ -68,20 +68,20 @@ class Teacher{
 		}
 	}
 	public void test(){
-		System.out.println("练习");
+		System.out.println("???");
 	}
 	
 }
 
 class ExceptionTest{
 	public static void main (String[] args){
-		Teacher t = new Teacher("程老师");
+		Teacher t = new Teacher("?????");
 		try{
 			t.prelect();			
 		}
 		catch(NoPlanException e){
 			System.out.println(e.toString());
-			System.out.println("换老师或放假");	
+			System.out.println("?????????");	
 		}
 	}
 }
