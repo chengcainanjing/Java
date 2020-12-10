@@ -1,4 +1,4 @@
-class StingDemo {
+class StringDemo {
     public static void main(String[] args) {
         //s1是一个类类型变量，“abc”是一个对象
         //字符串最大特点：一旦被初始化，就不可以改变

@@ -12,17 +12,17 @@ class StringMethodDemo {
         System.out.println(s1 == s2);
         //String类复写了object类中的equals方法，该方法用于判断字符串是否相同
         System.out.println(s1.equals(s2));*/
-        method_get();
+        //method_get();
 
-        method_is();
+        //method_is();
 
-        method_trans();
+        //method_trans();
 
-        method_replace();
+        //method_replace();
 
-        method_split();
+        //method_split();
 
-        method_sub();
+        //method_sub();
 
         method_compare();
 
@@ -31,13 +31,17 @@ class StringMethodDemo {
     public static void method_compare() {
         String s1 = "    hello java   ";
 
+        //转为大写
         sop(s1.toUpperCase());
+        //转为小写
         sop(s1.toLowerCase());
+        //去掉字符串两端的多个空格
         sop(s1.trim());
 
         String s2 = "ada";
         String s3 = "acd";
 
+        //对两个字符串进行自然顺序比较
         sop(s2.compareTo(s3));
 
     }
